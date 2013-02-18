@@ -1,6 +1,8 @@
 Steps = new Meteor.Collection("steps");
 
+var names = []
 var step_keys = {"97":"bl","99":"br","101":"m","103":"tl","105":"tr"}
+$.each(step_keys, function(k,v) {names.push(v)};)
 
 var flecha = function(li_id, li_top) {
   this.velocidad = 4;
@@ -26,7 +28,6 @@ if (Meteor.isClient) {
     e = e || window.event;
     var step_start;
     if(e.keyCode == '97' || e.keyCode == '99' || e.keyCode == '101' || e.keyCode == '103' || e.keyCode == '105'){
-      //$("#" + step_keys[e.keyCode]).addClass("sa-" + step_keys[e.keyCode])
       step_start = Steps.find({key_name: step_keys[e.keyCode]}).fetch()[0];
       Steps.update(step_start._id, {$set: {flag_pressed: true}})
     }
@@ -36,7 +37,6 @@ if (Meteor.isClient) {
     e = e || window.event;
     var step_end;
     if(e.keyCode == '97' || e.keyCode == '99' || e.keyCode == '101' || e.keyCode == '103' || e.keyCode == '105'){
-      //$("#" + step_keys[e.keyCode]).removeClass("sa-" + step_keys[e.keyCode])
       step_end = Steps.find({key_name: step_keys[e.keyCode]}).fetch()[0];
       Steps.update(step_end._id, {$set: {flag_pressed: false}})
     }
@@ -50,7 +50,6 @@ if (Meteor.isClient) {
     'click input' : function () {
       // template data, if any, is available in 'this'
       if (typeof console !== 'undefined')
-        var names = ["bl", "tl", "m", "tr", "br"];
         var new_arrow;
         for(var i = 0; i < 100; i++){
           var pos_names = Math.floor(Math.random() * names.length)
@@ -74,7 +73,6 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Meteor.startup(function () {
     if (Steps.find().count() === 0) {
-      var names = ["bl", "tl", "m", "tr", "br"];
       for (var i = 0; i < names.length; i++)
         Steps.insert({key_name: names[i]});
     }
