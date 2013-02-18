@@ -1,7 +1,7 @@
 Steps = new Meteor.Collection("steps");
 
 var names = []
-var step_keys = {"97":"bl","99":"br","101":"m","103":"tl","105":"tr"}
+var step_keys = {"97":"bl","103":"tl","101":"m","105":"tr","99":"br"}
 for(var key in step_keys){names.push(step_keys[key])}
 
 var flecha = function(li_id, li_top) {
