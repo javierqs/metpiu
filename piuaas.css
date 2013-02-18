@@ -1,0 +1,25 @@
+/* CSS declarations go here */
+.arrow{
+	background-repeat: no-repeat;
+	background-image: url(ARROW2.png);
+	width: 60px;
+	height: 60px;
+	display: inline-block;
+}
+#steps{padding-left: 0px}
+#song_steps .arrow{position:absolute;z-index: -1}
+#tl{background-position: -300px -60px;left:60px;}
+#bl{background-position: -300px 0px;left:0px;}
+#m{background-position: -300px -120px;left:120px;}
+#tr{background-position: -300px -180px;left:180px;}
+#br{background-position: -300px -240px;left:240px;}
+#song_tl{background-position: -240px -60px;}
+#song_bl{background-position: -240px 0px;}
+#song_m{background-position: -240px -120px;}
+#song_tr{background-position: -240px -180px;}
+#song_br{background-position: -240px -240px;}
+.sa-tl{background-position: -360px -60px!important;}
+.sa-bl{background-position: -360px 0px!important;}
+.sa-m{background-position: -360px -120px!important;}
+.sa-tr{background-position: -360px -180px!important;}
+.sa-br{background-position: -360px -240px!important;}
