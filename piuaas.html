@@ -10,14 +10,8 @@
 
 <template name="screen">
   	<input type="button" value="Click">
-	<ul id="steps">
-	{{#each steps}}
-	  {{> step}}
-	{{/each}}
-	</ul>
+	<ul id="steps">{{#each steps}}{{> step}}{{/each}}</ul>
 	<ul id="song_steps"></ul>
 </template>
 
-<template name="step">
-	<li id="{{key_name}}" class="arrow sa-{{pressed}}"></li>
-</template>
+<template name="step"><li id="{{key_name}}" class="arrow sa-{{pressed}}" /></template>
